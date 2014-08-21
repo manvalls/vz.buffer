@@ -1,7 +1,7 @@
 {
   "name": "vz.buffer",
   "version": "1.0.0",
-  "description": "Buffer for storing data and retrieving it later",
+  "description": "Buffer for storing data and retrieving it later - or vice versa",
   "main": "main.js",
   "repository": {
     "type": "git",
