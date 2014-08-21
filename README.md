@@ -40,6 +40,35 @@ This function adds items to the buffer. In case there's one or more callbacks aw
 
 The number of stored items. It's both readable and writable, affected by Buffer.where and the takeOrder.
 
+#### Buffer.target
+
+This property represents the buffer where the give operation takes place. It defaults to *this*.
+
+#### static Buffer.chain(buffer1,buffer2[,buffer3[,buffer4...]])
+
+This function chains the targets of given buffers. For example, 4 buffers would be chained like this:
+
+```
+
+buffer1 --> buffer2
+^             |
+|             v
+buffer4 <-- buffer3
+
+
+```
+
+In this example, items given to buffer1 should be taken from buffer2, and so on. With two buffers, the chain would be:
+
+```
+
+buffer1 -->
+        <-- buffer2
+
+```
+
+Meaning that items given to buffer1 should be taken from buffer2 and vice versa.
+
 #### Buffer.take(callback[,thisArg])
 
 This function retrieves items from the buffer. In case there's one or more items awaiting on the buffer, the callback will be called with the first ones as arguments, if not, said callback will be kept awaiting on the buffer.
