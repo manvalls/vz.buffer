@@ -1,0 +1,15 @@
+{
+  "name": "vz.buffer",
+  "version": "1.0.0",
+  "description": "Buffer for storing data and retrieving it later",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/manvalls/vz.buffer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manvalls/vz.buffer/issues"
+  },
+  "author": "Manuel Valls Fernández <manolo@chatiku.com>",
+  "license": "LGPL-3.0"
+}
