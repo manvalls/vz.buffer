@@ -18,15 +18,17 @@ buff.give('world!');            // world!
 
 ## Reference
 
+**Note:** calls can be chained
+
 ### Buffer object
 
 #### Constructor(takeOrder[,giveOrder])
 
-##### takeOrder
+##### takeOrder (Buffer.ordering.take)
 
 In case the buffer has more than one item buffered, this represents the order of taking them when using Buffer.take(). One of 'fifo' or 'lifo'.
 
-##### giveOrder
+##### giveOrder (Buffer.ordering.give)
 
 In case the buffer has more than one callback awaiting, this represents the order of giving items to them when using Buffer.give(). One of 'fifo' or 'lifo'.
 
@@ -66,9 +68,23 @@ If this function is used, the next give or take operation on this buffer will ta
 
 If this function is used, and the next give or take operation needs to store an item or callback, it will be stored at the front of the queue. Otherwise it will be stored at the back.
 
-#### Buffer.apply(thisArg,arguments)
+#### Buffer.taker
 
-Shorcut for Buffer.give(arguments\[0\]\[,arguments\[1\]...\])
+Current callback being executed, if any
 
+#### Buffer.takerThis
 
+If there's a callback executing, this represents the thisArg of said callback
+
+#### Buffer.takerTest
+
+If there's a callback executing, this represents the testFunction passed to Buffer.where before the Buffer.take call which received the current callback.
+
+#### Buffer.takerTestThis
+
+If there's a callback executing, this represents the thisArg passed to Buffer.where before the Buffer.take call which received the current callback.
+
+#### Buffer.retake()
+
+Shorcut for buffer.where(buffer.takerTest,buffer.takerTestThis).take(buffer.taker,buffer.takerThis);
 
