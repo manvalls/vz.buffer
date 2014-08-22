@@ -51,8 +51,8 @@ This function chains the targets of given buffers. For example, 4 buffers would 
 ```
 
 buffer1 --> buffer2
-^             |
-|             v
+   ^           |
+   |           v
 buffer4 <-- buffer3
 
 
