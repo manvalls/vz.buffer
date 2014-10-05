@@ -229,7 +229,7 @@ Object.defineProperties(Buffer.prototype,{
       }
       
       if(times > 0){
-        if(this._infront){
+        if(infront){
           target._args.unshift(arguments);
           target._argsTimes.unshift(times);
           
